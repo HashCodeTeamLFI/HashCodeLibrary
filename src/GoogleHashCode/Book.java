@@ -1,6 +1,6 @@
 package GoogleHashCode;
 
-public class Book {
+public class Book implements Comparable<Book> {
     private int id;
     private int score;
     private boolean visited;
@@ -33,5 +33,10 @@ public class Book {
 
     public void setVisited(boolean visited) {
         this.visited = visited;
+    }
+
+    @java.lang.Override
+    public int compareTo(Book book) {
+        return score - book.score;
     }
 }

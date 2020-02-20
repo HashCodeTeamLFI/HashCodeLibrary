@@ -25,6 +25,7 @@ public class LibraryMain {
         }
         // Library sections
         ArrayList<Library> libraries = new ArrayList<>();
+        int count = 0;
         while (input.hasNextLine()) {
             String line = input.nextLine();
 
@@ -41,9 +42,9 @@ public class LibraryMain {
             for (int i = 0; i < amountBooks; i++) {
                 bookIDs[i] = books[Integer.parseInt(x[i])];
             }
-            Library lib = new Library(bookIDs, signupDays, shippingBooks);
+            Library lib = new Library(count, bookIDs, signupDays, shippingBooks);
             libraries.add(lib);
-
+            count++;
         }
         System.out.println("test");
     }

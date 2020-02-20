@@ -1,11 +1,12 @@
 package GoogleHashCode;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
 
 public class Library {
-    private List<Book> bookList;
+    private Book[] bookList;
     private int signUpTime;
     private int scannedBooks;
     private int possiblePoints;
@@ -13,19 +14,20 @@ public class Library {
     private int booksSize;
     private PriorityQueue<Book> pq = new PriorityQueue<>();
 
-    public Library(int signUpTime, int scannedBooks) {
-        bookList = new ArrayList<>();
+    public Library(Book[] bookList, int signUpTime, int scannedBooks) {
+        Arrays.sort(bookList);
+        this.bookList = bookList;
         this.signUpTime = signUpTime;
         this.scannedBooks = scannedBooks;
         possiblePoints = 0;
         visited = false;
     }
 
-    public List<Book> getBookList() {
+    public Book[] getBookList() {
         return bookList;
     }
 
-    public void setBookList(List<Book> bookList) {
+    public void setBookList(Book[] bookList) {
         this.bookList = bookList;
     }
 
@@ -61,8 +63,8 @@ public class Library {
         this.visited = visited;
     }
 
-    public boolean addBook(Book book) {
-        return bookList.add(book);
-    }
+//    public boolean addBook(Book book) {
+//        return bookList.add(book);
+//    }
 
 }

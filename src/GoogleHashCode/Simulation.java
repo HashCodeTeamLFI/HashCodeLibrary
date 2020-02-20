@@ -1,5 +1,7 @@
 package GoogleHashCode;
 
+import java.util.*;
+
 public class Simulation {
     int totalDays;
     Library[] libraries;
@@ -9,18 +11,38 @@ public class Simulation {
     int day = 0;
     boolean shipping = false;
 
+
+    int libraryCount = 0;
+    ArrayList<Library> librariesScanning = new ArrayList<>();
+
     public Simulation(Library[] libraries, Book[] books, int availableDays) {
         this.libraries = libraries;
-        this.allBooks = allBooks;
+        this.allBooks = books;
         this.totalDays = availableDays;
     }
 
 
     public void start(){
+        Library thatsShipping = null;
         for (int days = 0; days < 10; days++) {
-            updatePossiblePoints();
+            //scan all current books
+            for (Library l : librariesScanning) {
+                for (int i = 0; i < l.getScannedBooks(); i++) {
+                    l.pq.poll();
+                }
+            }
             if(!shipping) { //find the library with the greatest points and start it!
-
+                updatePossiblePoints();
+                thatsShipping = pickBestLibrary();
+                populateLibraryPriorityQueue(thatsShipping);
+                thatsShipping.signUpTime -= 1;
+            }
+            else // it is currently shipping, so pop the books, make them visited, and
+            {
+                if(thatsShipping.signUpTime == 0) {
+                    librariesScanning.add(thatsShipping);
+                    shipping = false;
+                }
             }
 
         }
@@ -67,6 +89,11 @@ public class Simulation {
     public void populateLibraryPriorityQueue(Library lib){
         Book[] bookArray = lib.getBookList();
         for (int i = 0;  i < bookArray.length && i < (totalDays - (day + lib.getSignUpTime()) + 1); i++) {
+            if (!bookArray[i].isVisited()){
+                lib.pq.add(bookArray[i]);
+                bookArray[i].setVisited(true);
+            }
+
 
         }
     }

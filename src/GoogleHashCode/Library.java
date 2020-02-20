@@ -7,14 +7,17 @@ import java.util.PriorityQueue;
 
 public class Library {
     private Book[] bookList;
+    public int id;
     public int signUpTime;
     private int scannedBooks;
     private int possiblePoints;
     private boolean visited;
     private int booksSize;
+    public ArrayList<Book> submission = new ArrayList<>();
     public PriorityQueue<Book> pq = new PriorityQueue<>();
 
-    public Library(Book[] bookList, int signUpTime, int scannedBooks) {
+    public Library(int id, Book[] bookList, int signUpTime, int scannedBooks) {
+        this.id = id;
         Arrays.sort(bookList);
         this.bookList = bookList;
         this.signUpTime = signUpTime;

@@ -37,6 +37,6 @@ public class Book implements Comparable<Book> {
 
     @java.lang.Override
     public int compareTo(Book book) {
-        return score - book.score;
+        return book.score - score;
     }
 }

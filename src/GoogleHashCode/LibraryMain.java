@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 
 public class LibraryMain {
     public static void main(String[] args) throws FileNotFoundException {
-        File inputFile = new File("b_read_on.txt");
+        File inputFile = new File("src/GoogleHashCode/a_example.txt");
         Scanner input = new Scanner(inputFile);
         String firstLine = input.nextLine();
         String[] arr = firstLine.split(" ");
@@ -25,12 +25,14 @@ public class LibraryMain {
         }
         // Library sections
         ArrayList<Library> libraries = new ArrayList<>();
+        int count = 0;
         while (input.hasNextLine()) {
             String line = input.nextLine();
 
             String[] x = line.split(" ");
             if(x[0].equals("")) {
                 System.out.println("Ss");
+                break;
             }
             int amountBooks = Integer.parseInt(x[0]);
             int signupDays = Integer.parseInt(x[1]);
@@ -41,10 +43,12 @@ public class LibraryMain {
             for (int i = 0; i < amountBooks; i++) {
                 bookIDs[i] = books[Integer.parseInt(x[i])];
             }
-            Library lib = new Library(bookIDs, signupDays, shippingBooks);
+            Library lib = new Library(count, bookIDs, signupDays, shippingBooks);
             libraries.add(lib);
-
+            count++;
         }
-        System.out.println("test");
+
+        Simulation sim = new Simulation(libraries, numDays);
+        sim.start();
     }
 }

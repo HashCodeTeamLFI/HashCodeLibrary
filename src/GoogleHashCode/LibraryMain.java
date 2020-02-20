@@ -36,12 +36,7 @@ public class LibraryMain {
             x = line.split(" ");
             Book[] bookIDs = new Book[amountBooks];
             for (int i = 0; i < amountBooks; i++) {
-                for (int j = 0; j < books.length; j++) {
-                    if (books[j].getId() == Integer.parseInt(x[i])) {
-                        bookIDs[i] = books[j];
-                        break;
-                    }
-                }
+                bookIDs[i] = books[Integer.parseInt(x[i])];
             }
             Library lib = new Library(bookIDs, signupDays, shippingBooks);
             libraries.add(lib);

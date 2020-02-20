@@ -8,7 +8,7 @@ public class Book {
     public Book(int id, int score) {
         this.id = id;
         this.score = score;
-        this.visited = visited;
+        visited = false;
     }
 
     public int getId() {

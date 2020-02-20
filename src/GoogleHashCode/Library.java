@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 
 public class Library {
     private Book[] bookList;
-    private int signUpTime;
+    public int signUpTime;
     private int scannedBooks;
     private int possiblePoints;
     private boolean visited;

@@ -29,6 +29,9 @@ public class LibraryMain {
             String line = input.nextLine();
 
             String[] x = line.split(" ");
+            if(x[0].equals("")) {
+                System.out.println("Ss");
+            }
             int amountBooks = Integer.parseInt(x[0]);
             int signupDays = Integer.parseInt(x[1]);
             int shippingBooks = Integer.parseInt(x[2]);

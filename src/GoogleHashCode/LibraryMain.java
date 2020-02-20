@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 
 public class LibraryMain {
     public static void main(String[] args) throws FileNotFoundException {
-        File inputFile = new File("a_example.txt");
+        File inputFile = new File("b_read_on.txt");
         Scanner input = new Scanner(inputFile);
         String firstLine = input.nextLine();
         String[] arr = firstLine.split(" ");

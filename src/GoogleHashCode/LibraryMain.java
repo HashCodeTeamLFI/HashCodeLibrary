@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 
 public class LibraryMain {
     public static void main(String[] args) throws FileNotFoundException {
-        File inputFile = new File("b_read_on.txt");
+        File inputFile = new File("a_example.txt");
         Scanner input = new Scanner(inputFile);
         String firstLine = input.nextLine();
         String[] arr = firstLine.split(" ");
@@ -45,6 +45,8 @@ public class LibraryMain {
             libraries.add(lib);
 
         }
-        System.out.println("test");
+        System.out.println("testing");
+        System.out.println(libraries.size());
+
     }
 }

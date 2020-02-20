@@ -27,7 +27,17 @@ public class LibraryMain {
         while (input.hasNextLine()) {
             String line = input.nextLine();
             if (line.length() == 5) {
-                //String[] arr
+                String[] x = line.split(" ");
+                int amountBooks = Integer.parseInt(x[0]);
+                int signupDays = Integer.parseInt(x[1]);
+                int shippingBooks = Integer.parseInt(x[2]);
+                //libraries.add(new Library(signupDays, shippingBooks));
+            }
+
+            else {
+                String[] x = line.split(" ");
+                int[] bookIDs = new int[x.length];
+
             }
         }
         System.out.println("test");
